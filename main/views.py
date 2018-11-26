@@ -45,7 +45,7 @@ def eliminar_tag(request):
 @login_required()
 def noticias(request):
     tags = Tag.objects.all()
-    noticia = Noticia.objects.all()
+    noticias = Noticia.objects.all()
     return render(request, 'noticias.html', {'tags':tags, 'noticias':noticias})
 
 @login_required()
