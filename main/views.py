@@ -59,6 +59,21 @@ def crear_noticia(request):
         noticia.tag.add(tags)
     return redirect('noticias')
 #----------------------------------------------------------------------
+@login_required()
+def eventos(request):
+    tipos =Tipo.objects.all()
+    evento = Evento.objects.all()
+    return render(request, 'eventos.html', {'tipos':tipos, 'eventos':eventos})
+
+@login_required()
+def crear_evento(request):
+    if request.method == 'POST':
+        evento = Evento()
+        evento.nombre = request.POST.get('nombre')
+        evento.auspicio = request.POST.get('auspicio')
+        evento.fecha = request.POST.get('fecha')
+        evento.save()
+    return redirect('eventos')
 
 
 #----------------------------------------------------------------------
