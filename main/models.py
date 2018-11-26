@@ -39,3 +39,28 @@ class Noticia(models.Model):
 
     class Meta:
         ordering = ('id_noticia',)
+
+class Tipo(models.Model):
+    id_tipo = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length = 255)
+
+    def __str__(self):
+        return self.id_tipo
+    
+    class Meta:
+        ordering = ('id_tipo',)
+
+
+class Evento(models.Model):
+    id_evento = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length = 255)
+    auspicio = models.CharField(max_length = 255)
+    #fecha = models.DateField()
+    #tipo = models.ForeignKey(Tipo, on_delete = models.CASCADE)
+
+    def __str__(self):
+        return self.id_evento
+
+    class Meta:
+        ordering = ('id_evento',)
+
