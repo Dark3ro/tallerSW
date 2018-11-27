@@ -29,6 +29,7 @@ def crear_tag(request):
 def editar_tag(request):
     if request.method == 'POST':
         id = request.POST.get('id_tag')
+        print('id: ',id)
         tag = Tag.objects.get(pk=id)
         tag.name_tag = request.POST.get('name_tag')
         tag.save()
@@ -59,6 +60,22 @@ def crear_noticia(request):
         noticia.tag.add(tags)
     return redirect('noticias')
 
+@login_required()
+def editar_noticia(request):
+    if request.method == 'POST':
+        id = request.POST.get('id_noticia')
+        noticia = Noticia.objects.get(pk=id)
+        noticia.titulo = request.POST.get('titulo_edit')
+        noticia.texto = request.POST.get('texto_edit')
+        noticia.save()
+    return redirect('noticias')
+
+@login_required()
+def mostrar_noticia(request):
+    if request.method == 'POST':
+        id = request.POST.get('id_noticia')
+        noticia = Noticia.objects.get(pk=id)
+    return render(request, 'noticias.html', {'noticia':noticia})
 #----------------------------------------------------------------------
 @login_required()
 def eventos(request):
