@@ -58,6 +58,7 @@ def crear_noticia(request):
         tags = request.POST.get('tag_name', '')
         noticia.tag.add(tags)
     return redirect('noticias')
+
 #----------------------------------------------------------------------
 @login_required()
 def eventos(request):
