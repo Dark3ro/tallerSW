@@ -8,7 +8,7 @@
 
     <div class="col-8">
       <h2>Agregar Evento</h2>
-      <form  action="{% url 'agregar_evento' %}" method="POST">{% csrf_token %}
+      <form  action="{% url 'crear_evento' %}" method="POST">{% csrf_token %}
         <div class="form-group" action=>
           <label for="usr">Nombre:</label>
           <input type="text" class="form-control" name="nombre" id="name_tag">
@@ -31,7 +31,7 @@
   </div
 </div>
 
-  
-    
+
+
 
 {% endblock %}

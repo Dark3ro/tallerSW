@@ -29,6 +29,11 @@ urlpatterns = [
     #noticias
     path('noticias', views.noticias, name="noticias"),
     path('crear_noticia', views.crear_noticia, name='crear_noticia'),
+    path('editar_noticia', views.editar_noticia, name='editar_noticia'),
+    path('mostrar_noticia', views.mostrar_noticia, name='mostrar_noticia'),
+    #eventos
+    path('eventos', views.eventos, name="eventos"),
+    path('crear_evento', views.crear_evento, name='crear_evento'),
     #tareas
     path('tareas', views.tareas, name="tareas"),
     path('crear_tarea', views.crear_tarea, name='crear_tarea'),
@@ -36,5 +41,5 @@ urlpatterns = [
     path('login', auth_views.LoginView.as_view(), name="login"),
     path('logout', auth_views.LogoutView.as_view(), name="logout"),
     #evento
-    
+
 ]
