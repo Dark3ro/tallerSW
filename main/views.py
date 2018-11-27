@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Tarea, Tag, Noticia
+from .models import Tarea, Tag, Noticia, Tipo, Evento
 
 # Create your views here.
 @login_required()
@@ -58,6 +58,7 @@ def crear_noticia(request):
         tags = request.POST.get('tag_name', '')
         noticia.tag.add(tags)
     return redirect('noticias')
+
 #----------------------------------------------------------------------
 @login_required()
 def eventos(request):

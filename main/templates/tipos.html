@@ -9,7 +9,7 @@
   <div class="row">
 
     <div class="col-4">
-      <h2>Crear Tag</h2>
+      <h2>Crear Tipos</h2>
       <form  action="{% url 'crear_tag' %}" method="POST">{% csrf_token %}
         <div class="form-group" action=>
           <label for="usr">Nombre:</label>
@@ -19,7 +19,7 @@
       </form>
     </div>
     <div class="col-4">
-      <h2>Editar Tag</h2>
+      <h2>Editar Tipos</h2>
       <form  action="{% url 'editar_tag' %}" method="POST">{% csrf_token %}
         {% for t in tags %}
         <div class="form-check">
@@ -37,7 +37,7 @@
 
     </div>
     <div class="col-4">
-      <h2>Eliminar Tag</h2>
+      <h2>Eliminar Tipos</h2>
       <form  action="{% url 'eliminar_tag' %}" method="POST">{% csrf_token %}
         {% for t in tags %}
         <div class="form-check">
