@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Proyectos{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+
+    <div class="col-8">
+      <h2>Crear Proyecto</h2>
+      <form  action="{% url 'crear_proyecto' %}" method="POST">{% csrf_token %}
+        <div class="form-group" action=>
+          <label for="usr">Nombre:</label>
+          <input type="text" class="form-control" name="nombre" id="name_tag">
+        </div>
+        <div class="form-group">
+          <label for="usr">Tipo de proyecto:</label>
+          <input type="text" class="form-control" name="tipo" id="name_tag">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Crear</button>
+        </div>
+      </form>
+    </div>
+  </div
+</div>
+
+  <div class="row">
+    <div class="col-8">
+    <h2>Editar Proyecto</h2>
+    <form  action="{% url 'editar_proyecto' %}" method="POST">{% csrf_token %}
+      {% for t in proyectos %}
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name = 'id_proyecto' value="{{t.id_proyecto}}" checked>
+        <label class="form-check-label">
+          {{t.nombre_pro}}
+        </label>
+      </div>
+      {% endfor %}
+      <div class="form-group" >
+        <label for="usr">Nombre de proyecto:</label>
+        <input type="text" class="form-control" name="nombre_pro" id="nombre_pro">
+      </div>
+      <div class="form-group" >
+        <label for="usr">Tipo de proyecto:</label>
+        <input type="text" class="form-control" name="tipo" id="tipo">
+      </div>
+      <button type="submit" class="btn btn-primary">Editar</button>
+    </form>
+
+    <div class="row">
+      <div class="col-8">
+      <h2>Eliminar Noticia</h2>
+      <form method="POST" action="{% url 'eliminar_proyecto' %}">{% csrf_token %}
+        <label class="my-1 mr-2">Nombre:</label>
+        <select class="custom-select my-1 mr-sm-2" name='id_proyecto'>
+          <option disabled selected>Escoger...</option>
+          {% for n in proyectos %}
+            <option value="{{n.id_proyecto}}">{{n.nombre_pro}}</option>
+          {% endfor %}
+        </select>
+        <div class="form-group row col-md-12">
+            <button type="submit" class="btn btn-primary"onClick="return confirm('Seguro que desea eliminar')">Eliminar</button>
+        </div>
+      </form>
+
+
+{% endblock %}

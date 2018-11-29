@@ -37,6 +37,11 @@ urlpatterns = [
     path('editar_noticia', views.editar_noticia, name='editar_noticia'),
     path('mostrar_noticia', views.mostrar_noticia, name='mostrar_noticia'),
     path('eliminar_noticia', views.eliminar_noticia, name='eliminar_noticia'),
+    #proyectos
+    path('proyectos', views.proyectos, name="proyectos"),
+    path('crear_proyecto', views.crear_proyecto, name='crear_proyecto'),
+    path('editar_proyecto', views.editar_proyecto, name='editar_proyecto'),
+    path('eliminar_proyecto', views.eliminar_proyecto, name='eliminar_proyecto'),
     #eventos
     path('eventos', views.eventos, name="eventos"),
     path('crear_evento', views.crear_evento, name='crear_evento'),
@@ -46,6 +51,5 @@ urlpatterns = [
     #registro
     path('login', auth_views.LoginView.as_view(), name="login"),
     path('logout', auth_views.LogoutView.as_view(), name="logout"),
-
 
 ]
