@@ -28,9 +28,9 @@ urlpatterns = [
     path('eliminar_tag', views.eliminar_tag, name='eliminar_tag'),
     #tipos
     path('tipos', views.tipos, name="tipos"),
-    path('crear_tipo', views.crear_tipo, name='crear_tipo'),
-    path('editar_tipo', views.editar_tipo, name='editar_tipo'),
-    path('eliminar_tipo', views.eliminar_tipo, name='eliminar_tipo'),
+    #path('crear_tipo', views.crear_tipo, name='crear_tipo'),
+    #path('editar_tipo', views.editar_tipo, name='editar_tipo'),
+    #path('eliminar_tipo', views.eliminar_tipo, name='eliminar_tipo'),
     #noticias
     path('noticias', views.noticias, name="noticias"),
     path('crear_noticia', views.crear_noticia, name='crear_noticia'),
@@ -46,6 +46,6 @@ urlpatterns = [
     #registro
     path('login', auth_views.LoginView.as_view(), name="login"),
     path('logout', auth_views.LogoutView.as_view(), name="logout"),
-    
+
 
 ]
