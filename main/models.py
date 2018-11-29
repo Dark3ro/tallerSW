@@ -17,10 +17,23 @@ class Tag(models.Model):
     class Meta:
         ordering = ('id_tag',)
 
+class Proyecto(models.Model):
+    id_proyecto = models.AutoField(primary_key=True)
+    nombre_pro = models.CharField(max_length = 255)
+    tipo = models.CharField(max_length = 255)
+
+    def __str__(self):
+        return self.id_proyecto
+
+    class Meta:
+        ordering = ('id_proyecto',)
+
 class Usuario(models.Model):
     user= models.OneToOneField(User, on_delete = models.CASCADE)
     estado = models.CharField(max_length = 255)
+    tipo = models.CharField(max_length = 30)
     tag = models.ManyToManyField(Tag)
+    proyecto = models.ManyToManyField(Proyecto)
 
     def __str__(self):
         return self.user
