@@ -31,6 +31,7 @@ urlpatterns = [
     path('crear_noticia', views.crear_noticia, name='crear_noticia'),
     path('editar_noticia', views.editar_noticia, name='editar_noticia'),
     path('mostrar_noticia', views.mostrar_noticia, name='mostrar_noticia'),
+    path('eliminar_noticia', views.eliminar_noticia, name='eliminar_noticia'),
     #eventos
     path('eventos', views.eventos, name="eventos"),
     path('crear_evento', views.crear_evento, name='crear_evento'),

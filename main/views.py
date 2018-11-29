@@ -76,6 +76,14 @@ def mostrar_noticia(request):
         id = request.POST.get('id_noticia')
         noticia = Noticia.objects.get(pk=id)
     return render(request, 'noticias.html', {'noticia':noticia})
+
+@login_required()
+def eliminar_noticia(request):
+    if request.method == 'POST':
+        id = request.POST.get('id_noticia')
+        noticia = Noticia.objects.get(pk=id)
+        noticia.delete()
+    return redirect('noticias')    
 #----------------------------------------------------------------------
 @login_required()
 def eventos(request):
