@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Tarea, Tag, Noticia, Tipo, Evento
+from .models import Tarea, Tag, Noticia, Tipo, Evento, Proyecto
 
 # Create your views here.
 @login_required()
@@ -134,6 +134,53 @@ def eliminar_evento(request):
         evento = Evento.objects.get(pk=id)
         evento.delete()
     return redirect('eventos')
+#----------------------------------------------------------------------
+@login_required()
+def proyectos(request):
+    proyectos = Proyecto.objects.all()
+    return render(request, 'proyectos.html', {'proyectos':proyectos})
+
+@login_required()
+def crear_proyecto(request):
+    if request.method == 'POST':
+        proyecto = Proyecto()
+        proyecto.nombre_pro = request.POST.get('nombre')
+        proyecto.tipo = request.POST.get('tipo')
+        proyecto.save()
+    return redirect('proyectos')
+
+@login_required()
+def editar_proyecto(request):
+    if request.method == 'POST':
+        id = request.POST.get('id_proyecto')
+        proyecto = Proyecto.objects.get(pk=id)
+        proyecto.nombre_pro = request.POST.get('nombre_pro')
+        proyecto.tipo = request.POST.get('tipo')
+        proyecto.save()
+    return redirect('proyectos')
+
+@login_required()
+def eliminar_proyecto(request):
+    if request.method == 'POST':
+        id = request.POST.get('id_proyecto')
+        proyecto = Proyecto.objects.get(pk=id)
+        proyecto.delete()
+    return redirect('proyectos')
+#----------------------------------------------------------------------
+@login_required()
+def usuarios(request):
+    usuarios = Usuario.objects.all()
+    return render(request, 'usuarios.html', {'usuarios':usuarios})
+
+@login_required()
+def crear_usuario(request):
+    if request.method == 'POST':
+        usuario = Usuario()
+        usuarios.nombre_pro = request.POST.get('nombre')
+        usuarios.tipo = request.POST.get('tipo')
+        usuarios.save()
+    return redirect('usuarios')
+
 
 #----------------------------------------------------------------------
 @login_required()
