@@ -44,6 +44,14 @@ def eliminar_tag(request):
     return redirect('tags')
 #----------------------------------------------------------------------
 @login_required()
+def tipos(request):
+    tipos = Tipo.objects.all()
+    return render(request, 'tipos.html', {'tipos':tipos})
+
+
+
+#----------------------------------------------------------------------
+@login_required()
 def noticias(request):
     tags = Tag.objects.all()
     noticias = Noticia.objects.all()
@@ -83,7 +91,7 @@ def eliminar_noticia(request):
         id = request.POST.get('id_noticia')
         noticia = Noticia.objects.get(pk=id)
         noticia.delete()
-    return redirect('noticias')    
+    return redirect('noticias')
 #----------------------------------------------------------------------
 @login_required()
 def eventos(request):

@@ -26,6 +26,11 @@ urlpatterns = [
     path('crear_tag', views.crear_tag, name='crear_tag'),
     path('editar_tag', views.editar_tag, name='editar_tag'),
     path('eliminar_tag', views.eliminar_tag, name='eliminar_tag'),
+    #tipos
+    path('tipos', views.tipos, name="tipos"),
+    path('crear_tipo', views.crear_tipo, name='crear_tipo'),
+    path('editar_tipo', views.editar_tipo, name='editar_tipo'),
+    path('eliminar_tipo', views.eliminar_tipo, name='eliminar_tipo'),
     #noticias
     path('noticias', views.noticias, name="noticias"),
     path('crear_noticia', views.crear_noticia, name='crear_noticia'),
