@@ -69,8 +69,7 @@ class Evento(models.Model):
     nombre = models.CharField(max_length = 255)
     auspicio = models.CharField(max_length = 255)
     fecha = models.DateTimeField(max_length = 10)
-    tipo = models.ForeignKey(Tipo, on_delete = models.CASCADE)
-
+ 
     def __str__(self):
         return self.id_evento
 
