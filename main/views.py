@@ -95,7 +95,6 @@ def eliminar_noticia(request):
 #----------------------------------------------------------------------
 @login_required()
 def eventos(request):
-    #tipos =Tipo.objects.all()
     eventos = Evento.objects.all()
     return render(request, 'eventos.html', {'eventos':eventos})
 
