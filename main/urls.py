@@ -45,6 +45,9 @@ urlpatterns = [
     #eventos
     path('eventos', views.eventos, name="eventos"),
     path('crear_evento', views.crear_evento, name='crear_evento'),
+    path('mostrar_evento', views.mostrar_evento, name='mostrar_evento'),
+    path('editar_evento', views.editar_evento, name='editar_evento'),
+    path('eliminar_evento', views.eliminar_evento, name= 'eliminar_evento'),
     #tareas
     path('tareas', views.tareas, name="tareas"),
     path('crear_tarea', views.crear_tarea, name='crear_tarea'),
