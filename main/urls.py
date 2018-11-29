@@ -21,6 +21,13 @@ urlpatterns = [
     path('home', views.index, name="home"),
     #contenido estatico
     path('pago', views.pago, name="pago" ),
+    path('publico', views.publico, name="publico"),
+    path('quienes_somos',views.quienes_somos, name='quienes_somos'),
+    path('posicionamiento',views.posicionamiento, name='posicionamiento'),
+    path('servicios',views.servicios, name='servicios'),
+    path('retribucion', views.retribucion, name='retribucion'),
+    path('prototipado', views.prototipado, name='prototipado'),
+    path('area_extension', views.area_extension, name='area_extension'),
     #tags
     path('tags', views.tags, name="tags"),
     path('crear_tag', views.crear_tag, name='crear_tag'),

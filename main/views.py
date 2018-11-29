@@ -11,6 +11,34 @@ def index(request):
 @login_required()
 def pago(request):
     return render(request, 'pago.html')
+
+@login_required()
+def publico(request):
+    return render(request, 'publico.html')
+
+@login_required
+def quienes_somos(request):
+    return render(request,'quienes_somos.html')
+
+@login_required
+def posicionamiento(request):
+    return render(request,'posicionamiento.html')
+
+@login_required
+def servicios(request):
+    return render(request, 'servicios.html')
+
+@login_required
+def retribucion(request):
+    return render(request, 'retribucion.html')
+
+@login_required
+def prototipado(request):
+    return render(request, 'prototipado.html')
+
+@login_required
+def area_extension(request):
+    return render(request, 'area_extension.html')
 #----------------------------------------------------------------------
 @login_required()
 def tags(request):
@@ -83,7 +111,7 @@ def eliminar_noticia(request):
         id = request.POST.get('id_noticia')
         noticia = Noticia.objects.get(pk=id)
         noticia.delete()
-    return redirect('noticias')    
+    return redirect('noticias')
 #----------------------------------------------------------------------
 @login_required()
 def eventos(request):
