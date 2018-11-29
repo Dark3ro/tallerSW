@@ -26,11 +26,17 @@ urlpatterns = [
     path('crear_tag', views.crear_tag, name='crear_tag'),
     path('editar_tag', views.editar_tag, name='editar_tag'),
     path('eliminar_tag', views.eliminar_tag, name='eliminar_tag'),
+    #tipos
+    path('tipos', views.tipos, name="tipos"),
+    #path('crear_tipo', views.crear_tipo, name='crear_tipo'),
+    #path('editar_tipo', views.editar_tipo, name='editar_tipo'),
+    #path('eliminar_tipo', views.eliminar_tipo, name='eliminar_tipo'),
     #noticias
     path('noticias', views.noticias, name="noticias"),
     path('crear_noticia', views.crear_noticia, name='crear_noticia'),
     path('editar_noticia', views.editar_noticia, name='editar_noticia'),
     path('mostrar_noticia', views.mostrar_noticia, name='mostrar_noticia'),
+    path('eliminar_noticia', views.eliminar_noticia, name='eliminar_noticia'),
     #eventos
     path('eventos', views.eventos, name="eventos"),
     path('crear_evento', views.crear_evento, name='crear_evento'),
@@ -40,6 +46,6 @@ urlpatterns = [
     #registro
     path('login', auth_views.LoginView.as_view(), name="login"),
     path('logout', auth_views.LogoutView.as_view(), name="logout"),
-    
+
 
 ]
