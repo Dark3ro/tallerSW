@@ -28,6 +28,8 @@ urlpatterns = [
     path('retribucion', views.retribucion, name='retribucion'),
     path('prototipado', views.prototipado, name='prototipado'),
     path('area_extension', views.area_extension, name='area_extension'),
+    path('membresia',views.membresia, name='membresia'),
+    path('investigacion',views.investigacion, name='investigacion'),
     #tags
     path('tags', views.tags, name="tags"),
     path('crear_tag', views.crear_tag, name='crear_tag'),

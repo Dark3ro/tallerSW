@@ -39,6 +39,14 @@ def prototipado(request):
 @login_required
 def area_extension(request):
     return render(request, 'area_extension.html')
+
+@login_required
+def membresia(request):
+    return render(request, 'membresia.html')
+
+@login_required
+def investigacion(request):
+    return render(request, 'investigacion.html')
 #----------------------------------------------------------------------
 @login_required()
 def tags(request):
