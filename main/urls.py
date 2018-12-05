@@ -49,6 +49,10 @@ urlpatterns = [
     #registro
     path('login', auth_views.LoginView.as_view(), name="login"),
     path('logout', auth_views.LogoutView.as_view(), name="logout"),
+<<<<<<< HEAD
 
+=======
+    #evento
+>>>>>>> parent of 66b0ad0... calendar
 
 ]

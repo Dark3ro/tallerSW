@@ -55,7 +55,12 @@ class Evento(models.Model):
     id_evento = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length = 255)
     auspicio = models.CharField(max_length = 255)
+<<<<<<< HEAD
     fecha = models.CharField(max_length = 10)
+=======
+    fecha = models.DateTimeField(auto_now_add=True)
+    tipo = models.ForeignKey(Tipo, on_delete = models.CASCADE)
+>>>>>>> parent of 66b0ad0... calendar
 
     def __str__(self):
         return self.id_evento
