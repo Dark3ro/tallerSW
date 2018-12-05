@@ -96,7 +96,7 @@ def eliminar_noticia(request):
 @login_required()
 def eventos(request):
     eventos = Evento.objects.all()
-    return render(request, 'eventos.html', {'eventos':eventos})
+    return render(request, 'eventos.html',{'eventos':eventos})
 
 @login_required()
 def crear_evento(request):
@@ -106,32 +106,6 @@ def crear_evento(request):
         evento.auspicio = request.POST.get('auspicio')
         evento.fecha = request.POST.get('fecha')
         evento.save()
-    return redirect('eventos')
-
-@login_required()
-def editar_evento(request):
-    if request.method == 'POST':
-        id = request.POST.get('id_evento')
-        evento = Evento.objects.get(pk=id)
-        evento.nombre = request.POST.get('nombre_edit')
-        evento.auspicio = request.POST.get('auspicio_edit')
-        evento.fecha = request.POST.get('fecha_edit')
-        evento.save()
-    return redirect('eventos')
-
-@login_required()
-def mostrar_evento(request):
-    if request.method == 'POST':
-        id = request.POST.get('id_evento')
-        evento = Evento.objects.get(pk=id)
-    return render(request, 'eventos.html', {'evento':evento})
-
-@login_required()
-def eliminar_evento(request):
-    if request.method == 'POST':
-        id = request.POST.get('id_evento')
-        evento = Evento.objects.get(pk=id)
-        evento.delete()
     return redirect('eventos')
 
 #----------------------------------------------------------------------
