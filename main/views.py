@@ -181,23 +181,6 @@ def crear_usuario(request):
         usuarios.save()
     return redirect('usuarios')
 
-@login_required()
-def editar_proyecto(request):
-    if request.method == 'POST':
-        id = request.POST.get('id_proyecto')
-        proyecto = Proyecto.objects.get(pk=id)
-        proyecto.nombre_pro = request.POST.get('nombre_pro')
-        proyecto.tipo = request.POST.get('tipo')
-        proyecto.save()
-    return redirect('usuarios')
-
-@login_required()
-def eliminar_proyecto(request):
-    if request.method == 'POST':
-        id = request.POST.get('id_proyecto')
-        proyecto = Proyecto.objects.get(pk=id)
-        proyecto.delete()
-    return redirect('usuarios')
 #----------------------------------------------------------------------
 @login_required()
 def tareas(request):
