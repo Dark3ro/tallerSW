@@ -2,11 +2,23 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Tarea, Tag, Noticia, Tipo, Evento, Proyecto
+#
+from django.contrib import messages
+from .forms import NoticiaForm
+
+
+@login_required
+def crea_noti(request):
+    form = NoticiaForm()
+    return render(request, 'noticias.html', {'form':form })
+
+
+
 
 # Create your views here.
 @login_required()
 def index(request):
-    return redirect('tareas')
+    return render(request, 'home.html')
 
 @login_required()
 def pago(request):
@@ -60,12 +72,16 @@ def noticias(request):
 @login_required()
 def crear_noticia(request):
     if request.method == 'POST':
-        noticia = Noticia()
-        noticia.titulo = request.POST.get('titulo')
-        noticia.texto = request.POST.get('texto')
-        noticia.save()
-        tags = request.POST.get('tag_name', '')
-        noticia.tag.add(tags)
+        if form.is_valid():
+            noticia = Noticia()
+            noticia.titulo = request.POST.get('titulo')
+            noticia.texto = request.POST.get('texto')
+            noticia.save()
+            tags = request.POST.get('tag_name', '')
+            noticia.tag.add(tags)
+            messages.success(request, 'La noticia fue creada correctamente')
+        else:
+            messages.warning(request, 'Falta ingresar un dato')
     return redirect('noticias')
 
 @login_required()
@@ -173,17 +189,3 @@ def eliminar_proyecto(request):
         proyecto.delete()
     return redirect('usuarios')
 #----------------------------------------------------------------------
-@login_required()
-def tareas(request):
-    tareas = Tarea.objects.filter(usuario=request.user)
-    return render(request, 'tareas.html', {'tareas':tareas})
-
-@login_required()
-def crear_tarea(request):
-    if request.method == 'POST':
-        tarea = Tarea()
-        tarea.titulo = request.POST.get('titulo_tarea')
-        tarea.descripcion = request.POST.get('desc_tarea')
-        tarea.usuario = request.user
-        tarea.save()
-    return redirect('tareas')
