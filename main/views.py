@@ -20,9 +20,6 @@ def crea_noti(request):
 def index(request):
     return render(request, 'home.html')
 
-@login_required()
-def pago(request):
-    return render(request, 'pago.html')
 #----------------------------------------------------------------------
 @login_required()
 def tags(request):
@@ -59,8 +56,6 @@ def eliminar_tag(request):
 def tipos(request):
     tipos = Tipo.objects.all()
     return render(request, 'tipos.html', {'tipos':tipos})
-
-
 
 #----------------------------------------------------------------------
 @login_required()
@@ -171,21 +166,36 @@ def crear_usuario(request):
         usuarios.save()
     return redirect('usuarios')
 
-@login_required()
-def editar_proyecto(request):
-    if request.method == 'POST':
-        id = request.POST.get('id_proyecto')
-        proyecto = Proyecto.objects.get(pk=id)
-        proyecto.nombre_pro = request.POST.get('nombre_pro')
-        proyecto.tipo = request.POST.get('tipo')
-        proyecto.save()
-    return redirect('usuarios')
 
+
+#-----------------------------------------------------------------------
 @login_required()
-def eliminar_proyecto(request):
-    if request.method == 'POST':
-        id = request.POST.get('id_proyecto')
-        proyecto = Proyecto.objects.get(pk=id)
-        proyecto.delete()
-    return redirect('usuarios')
-#----------------------------------------------------------------------
+def pago(request):
+    return render(request, 'pago.html')
+@login_required()
+def publico(request):
+    return render(request, 'publico.html')
+@login_required
+def quienes_somos(request):
+    return render(request,'quienes_somos.html')
+@login_required
+def posicionamiento(request):
+    return render(request,'posicionamiento.html')
+@login_required
+def servicios(request):
+    return render(request, 'servicios.html')
+@login_required
+def retribucion(request):
+    return render(request, 'retribucion.html')
+@login_required
+def prototipado(request):
+    return render(request, 'prototipado.html')
+@login_required
+def area_extension(request):
+    return render(request, 'area_extension.html')
+@login_required
+def membresia(request):
+    return render(request, 'membresia.html')
+@login_required
+def investigacion(request):
+    return render(request, 'investigacion.html')

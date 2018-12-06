@@ -22,6 +22,15 @@ urlpatterns = [
     url(r'^$', views.index, name="home"),
     #contenido estatico
     path('pago', views.pago, name="pago" ),
+    path('publico', views.publico, name="publico"),
+    path('quienes_somos',views.quienes_somos, name='quienes_somos'),
+    path('posicionamiento',views.posicionamiento, name='posicionamiento'),
+    path('servicios',views.servicios, name='servicios'),
+    path('retribucion', views.retribucion, name='retribucion'),
+    path('prototipado', views.prototipado, name='prototipado'),
+    path('area_extension', views.area_extension, name='area_extension'),
+    path('membresia',views.membresia, name='membresia'),
+    path('investigacion',views.investigacion, name='investigacion'),
     #tags
     path('tags', views.tags, name="tags"),
     path('crear_tag', views.crear_tag, name='crear_tag'),
@@ -44,7 +53,7 @@ urlpatterns = [
     #eventos
     path('eventos', views.eventos, name="eventos"),
     path('crear_evento', views.crear_evento, name='crear_evento'),
-    
+
     #registro
     path('login', auth_views.LoginView.as_view(), name="login"),
     path('logout', auth_views.LogoutView.as_view(), name="logout"),
