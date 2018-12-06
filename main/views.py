@@ -74,17 +74,13 @@ def noticias(request):
 
 @login_required()
 def crear_noticia(request):
-    if request.method == 'POST':
-        if form.is_valid():
+    if request.method == 'POST':        
             noticia = Noticia()
             noticia.titulo = request.POST.get('titulo')
             noticia.texto = request.POST.get('texto')
             noticia.save()
             tags = request.POST.get('tag_name', '')
             noticia.tag.add(tags)
-            messages.success(request, 'La noticia fue creada correctamente')
-        else:
-            messages.warning(request, 'Falta ingresar un dato')
     return redirect('noticias')
 
 @login_required()
