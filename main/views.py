@@ -1,24 +1,36 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.form import UserCreationForm
 from .models import Tag, Noticia, Evento, Proyecto
 #
 from django.contrib import messages
 from .forms import NoticiaForm
 
 
-@login_required
+@login_required()
 def crea_noti(request):
     form = NoticiaForm()
     return render(request, 'noticias.html', {'form':form })
-
-
 
 
 # Create your views here.
 @login_required()
 def index(request):
     return render(request, 'home.html')
+
+@login_required()
+def registro(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+        else:
+            form = UserCreationForm()
+            args = {'form':form}
+            return render(request, 'registration/reg_form.html', args)
+
 
 #----------------------------------------------------------------------
 @login_required()
@@ -160,8 +172,6 @@ def crear_usuario(request):
         usuarios.tipo = request.POST.get('tipo')
         usuarios.save()
     return redirect('usuarios')
-
-
 
 #-----------------------------------------------------------------------
 @login_required()

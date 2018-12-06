@@ -5,7 +5,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
           $( function() {
-          $( "#datepicker" ).datepicker();
+          $('#datepicker').datepicker({dateFormat:'yy-mm-dd'});
           } );
         </script>
 </head>
@@ -16,7 +16,7 @@
 {% block content %}
 <div class="container">
   <div class="row">
-      
+
     <div class="col-8">
       <h2>Agregar Evento</h2>
       <form  action="{% url 'crear_evento' %}" method="POST">{% csrf_token %}
@@ -32,7 +32,7 @@
           <label for="usr">Fecha:</label>
           <input type="text" class="form-control" name="auspicio" id="datepicker">
         </div>
-        
+
 
         {% for t in tags %}
           <div class="form-check form-check-inline">
