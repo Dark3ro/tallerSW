@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.form import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm
 from .models import Tag, Noticia, Evento, Proyecto
 #
 from django.contrib import messages
@@ -10,8 +10,18 @@ from .forms import NoticiaForm
 
 @login_required()
 def crea_noti(request):
-    form = NoticiaForm()
-    return render(request, 'noticias.html', {'form':form })
+    if request.method == 'POST':
+        if form.is_valid():
+            noticia = Noticia()
+            noticia.titulo = request.POST.get('titulo')
+            noticia.texto = request.POST.get('texto')
+            noticia.save()
+            tags = request.POST.get('tag_name', '')
+            noticia.tag.add(tags)
+            messages.success(request, 'La noticia fue creada correctamente')
+        else:
+            messages.warning(request, 'Falta ingresar un dato')
+    return redirect('noticias')
 
 
 # Create your views here.
@@ -75,16 +85,13 @@ def noticias(request):
 @login_required()
 def crear_noticia(request):
     if request.method == 'POST':
-        if form.is_valid():
-            noticia = Noticia()
-            noticia.titulo = request.POST.get('titulo')
-            noticia.texto = request.POST.get('texto')
-            noticia.save()
-            tags = request.POST.get('tag_name', '')
-            noticia.tag.add(tags)
-            messages.success(request, 'La noticia fue creada correctamente')
-        else:
-            messages.warning(request, 'Falta ingresar un dato')
+        noticia = Noticia()
+        noticia.titulo = request.POST.get('titulo')
+        noticia.texto = request.POST.get('texto')
+        noticia.save()
+        tags = request.POST.get('tag_name', '')
+        noticia.tag.add(tags)
+
     return redirect('noticias')
 
 @login_required()
@@ -114,7 +121,7 @@ def eliminar_noticia(request):
 #----------------------------------------------------------------------
 @login_required()
 def eventos(request):
-    evento = Evento.objects.all()
+    eventos = Evento.objects.all()
     return render(request, 'eventos.html', {'eventos':eventos})
 
 @login_required()
@@ -125,6 +132,32 @@ def crear_evento(request):
         evento.auspicio = request.POST.get('auspicio')
         evento.fecha = request.POST.get('fecha')
         evento.save()
+    return redirect('eventos')
+
+@login_required()
+def editar_evento(request):
+    if request.method == 'POST':
+        id = request.POST.get('id_evento')
+        evento = Evento.objects.get(pk=id)
+        evento.nombre = request.POST.get('nombre_edit')
+        evento.auspicio = request.POST.get('auspicio_edit')
+        evento.fecha = request.POST.get('fecha_edit')
+        evento.save()
+    return redirect('eventos')
+
+@login_required()
+def mostrar_evento(request):
+    if request.method == 'POST':
+        id = request.POST.get('id_evento')
+        evento = Evento.objects.get(pk=id)
+    return render(request, 'eventos.html', {'evento':evento})
+
+@login_required()
+def eliminar_evento(request):
+    if request.method == 'POST':
+        id = request.POST.get ('id_evento')
+        evento = Evento.objects.get(pk=id)
+        evento.delete()
     return redirect('eventos')
 #----------------------------------------------------------------------
 @login_required()
