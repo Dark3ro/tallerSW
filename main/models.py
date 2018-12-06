@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 class Tag(models.Model):
     id_tag = models.AutoField(primary_key=True)
     name_tag = models.CharField(max_length = 255)
@@ -26,7 +25,7 @@ class Proyecto(models.Model):
 class Usuario(models.Model):
     user= models.OneToOneField(User, on_delete = models.CASCADE)
     estado = models.CharField(max_length = 255)
-    tipo = models.CharField(max_length = 30)
+    tipo = models.CharField(max_length = 55)
     tag = models.ManyToManyField(Tag)
     proyecto = models.ManyToManyField(Proyecto)
 
@@ -48,16 +47,6 @@ class Noticia(models.Model):
 
     class Meta:
         ordering = ('id_noticia',)
-
-class Tipo(models.Model):
-    id_tipo = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length = 255)
-
-    def __str__(self):
-        return self.id_tipo
-
-    class Meta:
-        ordering = ('id_tipo',)
 
 class Evento(models.Model):
     id_evento = models.AutoField(primary_key=True)

@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('id_evento', models.AutoField(primary_key=True, serialize=False)),
                 ('nombre', models.CharField(max_length=255)),
                 ('auspicio', models.CharField(max_length=255)),
-                ('fecha', models.DateTimeField(auto_now_add=True)),
+                ('fecha', models.CharField(max_length=10)),
             ],
             options={
                 'ordering': ('id_evento',),
@@ -33,6 +33,7 @@ class Migration(migrations.Migration):
                 ('titulo', models.CharField(max_length=255)),
                 ('texto', models.CharField(max_length=1500)),
                 ('fecha', models.DateTimeField(auto_now_add=True)),
+		('tag', models.ManyToManyField(to='main.Tag')),
             ],
             options={
                 'ordering': ('id_noticia',),
@@ -48,45 +49,36 @@ class Migration(migrations.Migration):
                 'ordering': ('id_tag',),
             },
         ),
-        migrations.CreateModel(
-            name='Tarea',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('titulo', models.CharField(max_length=255)),
-                ('descripcion', models.CharField(max_length=255)),
-                ('usuario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Tipo',
-            fields=[
-                ('id_tipo', models.AutoField(primary_key=True, serialize=False)),
-                ('nombre', models.CharField(max_length=255)),
-            ],
-            options={
-                'ordering': ('id_tipo',),
-            },
-        ),
+
         migrations.CreateModel(
             name='Usuario',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+		('tipo', models.CharField(max_length=55)),
                 ('estado', models.CharField(max_length=255)),
                 ('tag', models.ManyToManyField(to='main.Tag')),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+		('proyecto', models.ManyToManyField(to='main.Proyecto')),
             ],
             options={
                 'ordering': ('user',),
             },
         ),
-        migrations.AddField(
-            model_name='noticia',
-            name='tag',
-            field=models.ManyToManyField(to='main.Tag'),
+
+
+	migrations.CreateModel(
+            name='Proyecto',
+            fields=[
+                ('id_proyecto', models.AutoField(primary_key=True, serialize=False)),
+                ('nombre_pro', models.CharField(max_length=255)),
+		('tipo', models.CharField(max_length=255)),
+            ],
+            options={
+                'ordering': ('id_proyecto',),
+            },
         ),
-        migrations.AddField(
-            model_name='evento',
-            name='tipo',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.Tipo'),
-        ),
+
+
+
+
     ]
