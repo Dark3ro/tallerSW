@@ -1,4 +1,4 @@
-frfrom django.contrib import admin
+from django.contrib import admin
 from .models import Tag, Usuario, Noticia, Evento, Proyecto, Tipo
 # Register your models here.
 
