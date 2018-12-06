@@ -53,7 +53,10 @@ urlpatterns = [
     #eventos
     path('eventos', views.eventos, name="eventos"),
     path('crear_evento', views.crear_evento, name='crear_evento'),
-
+    path('editar_evento', views.editar_evento, name='editar_evento'),
+    path('mostrar_evento', views.mostrar_evento, name='mostrar_evento'),
+    path('eliminar_evento', views.eliminar_evento, name='eliminar_evento'),
+    
     #registro
     path('login', auth_views.LoginView.as_view(), name="login"),
     path('logout', auth_views.LogoutView.as_view(), name="logout"),

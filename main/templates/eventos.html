@@ -5,7 +5,7 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
           $( function() {
-          $( "#datepicker" ).datepicker();
+            $('#datepicker').datepicker({dateFormat:'yy-mm-dd'});
           } );
         </script>
 </head>
@@ -30,7 +30,7 @@
         </div>
         <div class="form-group" action=>
           <label for="usr">Fecha:</label>
-          <input type="text" class="form-control" name="auspicio" id="datepicker">
+          <input type="text" class="form-control" name="fecha" id="datepicker">
         </div>
         
 
@@ -79,7 +79,7 @@
 
     <div class="form-group row" action=>
       <div class="col-md-12">
-          <input type="text" class="form-control" name="fecha" id="datepicker" value = '{{evento.fecha}}'>
+          <input type="text" class="form-control" name="fecha_edit" id="datepicker" value ='{{evento.fecha}}'>
       </div>
     </div>
 
