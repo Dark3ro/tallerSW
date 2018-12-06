@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Tarea, Tag, Noticia, Tipo, Evento, Proyecto
+from .models import Tag, Noticia, Evento, Proyecto
 #
 from django.contrib import messages
 from .forms import NoticiaForm
@@ -51,11 +51,7 @@ def eliminar_tag(request):
         tag = Tag.objects.get(pk=id)
         tag.delete()
     return redirect('tags')
-#----------------------------------------------------------------------
-@login_required()
-def tipos(request):
-    tipos = Tipo.objects.all()
-    return render(request, 'tipos.html', {'tipos':tipos})
+
 
 #----------------------------------------------------------------------
 @login_required()
