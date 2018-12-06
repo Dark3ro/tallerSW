@@ -1,52 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Tarea, Tag, Noticia, Tipo, Evento
+from .models import Tarea, Tag, Noticia, Tipo, Evento, Proyecto
 
 # Create your views here.
 @login_required()
 def index(request):
     return redirect('tareas')
 
-@login_required()
-def pago(request):
-    return render(request, 'pago.html')
-
-@login_required()
-def publico(request):
-    return render(request, 'publico.html')
-
-@login_required
-def quienes_somos(request):
-    return render(request,'quienes_somos.html')
-
-@login_required
-def posicionamiento(request):
-    return render(request,'posicionamiento.html')
-
-@login_required
-def servicios(request):
-    return render(request, 'servicios.html')
-
-@login_required
-def retribucion(request):
-    return render(request, 'retribucion.html')
-
-@login_required
-def prototipado(request):
-    return render(request, 'prototipado.html')
-
-@login_required
-def area_extension(request):
-    return render(request, 'area_extension.html')
-
-@login_required
-def membresia(request):
-    return render(request, 'membresia.html')
-
-@login_required
-def investigacion(request):
-    return render(request, 'investigacion.html')
 #----------------------------------------------------------------------
 @login_required()
 def tags(request):
@@ -78,6 +39,14 @@ def eliminar_tag(request):
         tag = Tag.objects.get(pk=id)
         tag.delete()
     return redirect('tags')
+#----------------------------------------------------------------------
+@login_required()
+def tipos(request):
+    tipos = Tipo.objects.all()
+    return render(request, 'tipos.html', {'tipos':tipos})
+
+
+
 #----------------------------------------------------------------------
 @login_required()
 def noticias(request):
@@ -123,9 +92,8 @@ def eliminar_noticia(request):
 #----------------------------------------------------------------------
 @login_required()
 def eventos(request):
-    tipos =Tipo.objects.all()
-    evento = Evento.objects.all()
-    return render(request, 'eventos.html', {'tipos':tipos, 'eventos':eventos})
+    eventos = Evento.objects.all()
+    return render(request, 'eventos.html',{'eventos':eventos})
 
 @login_required()
 def crear_evento(request):
@@ -134,9 +102,56 @@ def crear_evento(request):
         evento.nombre = request.POST.get('nombre')
         evento.auspicio = request.POST.get('auspicio')
         evento.fecha = request.POST.get('fecha')
+        #print(evento.fecha)
         evento.save()
     return redirect('eventos')
 
+#----------------------------------------------------------------------
+@login_required()
+def proyectos(request):
+    proyectos = Proyecto.objects.all()
+    return render(request, 'proyectos.html', {'proyectos':proyectos})
+
+@login_required()
+def crear_proyecto(request):
+    if request.method == 'POST':
+        proyecto = Proyecto()
+        proyecto.nombre_pro = request.POST.get('nombre')
+        proyecto.tipo = request.POST.get('tipo')
+        proyecto.save()
+    return redirect('proyectos')
+
+@login_required()
+def editar_proyecto(request):
+    if request.method == 'POST':
+        id = request.POST.get('id_proyecto')
+        proyecto = Proyecto.objects.get(pk=id)
+        proyecto.nombre_pro = request.POST.get('nombre_pro')
+        proyecto.tipo = request.POST.get('tipo')
+        proyecto.save()
+    return redirect('proyectos')
+
+@login_required()
+def eliminar_proyecto(request):
+    if request.method == 'POST':
+        id = request.POST.get('id_proyecto')
+        proyecto = Proyecto.objects.get(pk=id)
+        proyecto.delete()
+    return redirect('proyectos')
+#----------------------------------------------------------------------
+@login_required()
+def usuarios(request):
+    usuarios = Usuario.objects.all()
+    return render(request, 'usuarios.html', {'usuarios':usuarios})
+
+@login_required()
+def crear_usuario(request):
+    if request.method == 'POST':
+        usuario = Usuario()
+        usuarios.nombre_pro = request.POST.get('nombre')
+        usuarios.tipo = request.POST.get('tipo')
+        usuarios.save()
+    return redirect('usuarios')
 
 #----------------------------------------------------------------------
 @login_required()
@@ -153,3 +168,34 @@ def crear_tarea(request):
         tarea.usuario = request.user
         tarea.save()
     return redirect('tareas')
+#-----------------------------------------------------------------------
+@login_required()
+def pago(request):
+    return render(request, 'pago.html')
+@login_required()
+def publico(request):
+    return render(request, 'publico.html')
+@login_required
+def quienes_somos(request):
+    return render(request,'quienes_somos.html')
+@login_required
+def posicionamiento(request):
+    return render(request,'posicionamiento.html')
+@login_required
+def servicios(request):
+    return render(request, 'servicios.html')
+@login_required
+def retribucion(request):
+    return render(request, 'retribucion.html')
+@login_required
+def prototipado(request):
+    return render(request, 'prototipado.html')
+@login_required
+def area_extension(request):
+    return render(request, 'area_extension.html')
+@login_required
+def membresia(request):
+    return render(request, 'membresia.html')
+@login_required
+def investigacion(request):
+    return render(request, 'investigacion.html')

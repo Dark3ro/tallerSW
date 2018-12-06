@@ -1,7 +1,7 @@
 
 {% extends 'base.html' %}
 
-{% block title %}Tags{% endblock %}
+{% block title %}Tipos{% endblock %}
 
 {% block content %}
 
@@ -10,10 +10,10 @@
 
     <div class="col-4">
       <h2>Crear Tipos</h2>
-      <form  action="{% url 'crear_tag' %}" method="POST">{% csrf_token %}
+      <form  action="{% url 'crear_tipo' %}" method="POST">{% csrf_token %}
         <div class="form-group" action=>
           <label for="usr">Nombre:</label>
-          <input type="text" class="form-control" name="name_tag" id="name_tag">
+          <input type="text" class="form-control" name="nombre" id="nombre">
         </div>
         <button type="submit" class="btn btn-primary">Crear Tag</button>
       </form>

@@ -1,11 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-class Tarea(models.Model):
-    titulo = models.CharField(max_length = 255)
-    descripcion = models.CharField(max_length = 255)
-    usuario = models.ForeignKey(User, on_delete = models.CASCADE)
 
 class Tag(models.Model):
     id_tag = models.AutoField(primary_key=True)
@@ -17,10 +12,23 @@ class Tag(models.Model):
     class Meta:
         ordering = ('id_tag',)
 
+class Proyecto(models.Model):
+    id_proyecto = models.AutoField(primary_key=True)
+    nombre_pro = models.CharField(max_length = 255)
+    tipo = models.CharField(max_length = 255)
+
+    def __str__(self):
+        return self.id_proyecto
+
+    class Meta:
+        ordering = ('id_proyecto',)
+
 class Usuario(models.Model):
     user= models.OneToOneField(User, on_delete = models.CASCADE)
     estado = models.CharField(max_length = 255)
+    tipo = models.CharField(max_length = 30)
     tag = models.ManyToManyField(Tag)
+    proyecto = models.ManyToManyField(Proyecto)
 
     def __str__(self):
         return self.user
@@ -55,8 +63,7 @@ class Evento(models.Model):
     id_evento = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length = 255)
     auspicio = models.CharField(max_length = 255)
-    fecha = models.DateTimeField(auto_now_add=True)
-    tipo = models.ForeignKey(Tipo, on_delete = models.CASCADE)
+    fecha = models.CharField(max_length = 10)
 
     def __str__(self):
         return self.id_evento
