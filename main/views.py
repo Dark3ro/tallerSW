@@ -1,39 +1,24 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-<<<<<<< HEAD
-from .models import Tarea, Tag, Noticia, Tipo, Evento, Proyecto
-=======
 from django.contrib.auth.forms import UserCreationForm
 from .models import Tag, Noticia, Evento, Proyecto
->>>>>>> master
 #
 from django.contrib import messages
 from .forms import NoticiaForm
 
 
-<<<<<<< HEAD
-@login_required
-=======
 @login_required()
->>>>>>> master
 def crea_noti(request):
     form = NoticiaForm()
     return render(request, 'noticias.html', {'form':form })
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> master
 
 # Create your views here.
 @login_required()
 def index(request):
     return render(request, 'home.html')
 
-<<<<<<< HEAD
-=======
 @login_required()
 def registro(request):
     if request.method == 'POST':
@@ -47,7 +32,6 @@ def registro(request):
             return render(request, 'registration/reg_form.html', args)
 
 
->>>>>>> master
 #----------------------------------------------------------------------
 @login_required()
 def tags(request):
@@ -79,7 +63,7 @@ def eliminar_tag(request):
         tag = Tag.objects.get(pk=id)
         tag.delete()
     return redirect('tags')
-
+    
 #----------------------------------------------------------------------
 @login_required()
 def noticias(request):
@@ -214,21 +198,11 @@ def crear_usuario(request):
         usuarios.save()
     return redirect('usuarios')
 
-<<<<<<< HEAD
-
-
 #-----------------------------------------------------------------------
 @login_required()
 def pago(request):
     return render(request, 'pago.html')
 @login_required()
-=======
-#-----------------------------------------------------------------------
-@login_required()
-def pago(request):
-    return render(request, 'pago.html')
-@login_required()
->>>>>>> master
 def publico(request):
     return render(request, 'publico.html')
 @login_required
