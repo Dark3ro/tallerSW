@@ -79,15 +79,6 @@ def eliminar_tag(request):
         tag = Tag.objects.get(pk=id)
         tag.delete()
     return redirect('tags')
-<<<<<<< HEAD
-#----------------------------------------------------------------------
-@login_required()
-def tipos(request):
-    tipos = Tipo.objects.all()
-    return render(request, 'tipos.html', {'tipos':tipos})
-=======
-
->>>>>>> master
 
 #----------------------------------------------------------------------
 @login_required()
