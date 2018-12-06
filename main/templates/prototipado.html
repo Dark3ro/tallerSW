@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+
+{% block title %}Prototipado Ágil{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3" style="background-color:gold;">
+      <a><h2 style="color:white"><span class="align-middle">Laboratorio de fabricación</span></h2></a>
+    </div>
+
+    <div class="col-sm-1">
+    </div>
+
+    <div class="col-sm-3" style="background-color:cyan;">
+      <a"><h2 style="color:white"><span class="align-middle">Customización maker</span></h2></a>
+    </div>
+
+    <div class="col-sm-1">
+    </div>
+
+    <div class="col-sm-3" style="background-color:orangered;">
+      <a"><h2 style="color:white"><span class="align-middle">Fabricación de producto</span></h2></a>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <li id="selectora" type='disc'><span id="texto">
+        <b>Espacio de Cowork:</b><br>
+        Incluye sala de reuniones,
+        locker, sector café-té.
+      </span></li>
+    </div>
+
+    <div class="col-sm-1">
+    </div>
+
+    <div class="col-sm-3">
+      <li id="selectorc" type='disc'><span id="texto">
+        Capacitaciones introductorias en FD.
+      </span></li>
+    </div>
+
+    <div class="col-sm-1">
+    </div>
+
+    <div class="col-sm-3">
+      <li id="selectoro" type='disc'><span id="texto">
+          Área de construcción y apoyo de formulación de prototipos.
+      </span></li>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <li id="selectora" type='disc'><span id="texto">
+        Taller de fabricación análoga.
+      </span></li>
+    </div>
+
+    <div class="col-sm-1">
+    </div>
+
+    <div class="col-sm-3">
+      <li id="selectorc" type='disc'><span id="texto">
+        Asesorías personalizadas
+        en el área técnica y gestión
+        de proyectos a nivel de
+        prototipado.
+      </span></li>
+    </div>
+
+    <div class="col-sm-1">
+    </div>
+
+    <div class="col-sm-3">
+      <li id="selectoro" type='disc'><span id="texto">
+        1. Compra de materiales, asociada a un
+        factor multiplicador (10% dda interna, 30% dda externa).<br>
+        2. Cobro de hora hombre (HH),
+        valorizadas en: 0,5 uf precio interno y 1 uf precio externo.<br>
+        3. Uso de laboratorio de fabricación
+        digital, sujeto a la valorización de la tabla 1.
+      </span></li>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <li id="selectora" type='disc'><span id="texto">
+        Valorizado en $40.000 mensuales. Horario de 9:00
+        a 18:00 hrs., de lunes a viernes.
+      </span></li>
+    </div>
+
+    <div class="col-sm-1">
+    </div>
+
+    <div class="col-sm-3">
+      <li id="selectorc" type='disc'><span id="texto">
+        Una hora por tipo de
+        maquinaría. Valorizada en
+        $15.000.
+      </span></li>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <li id="selectora" type='disc'><span id="texto">
+        <table border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+          <tr align="middle">
+            <th scope="col">Tipo de FD</th>
+            <th scope="col">$/H</th>
+            <th scope="col">Pago Real</th>
+            <th scope="col">Garantizadas</th>
+          </tr>
+          <tr align="middle">
+            <td>3D</td>
+            <td>3.600</td>
+            <td>$200gr</td>
+            <td>8 horas</td>
+          </tr>
+          <tr align="middle">
+            <td>Láser</td>
+            <td>16.800</td>
+            <td>-</td>
+            <td>4 horas</td>
+          </tr>
+          <tr align="middle">
+            <td>Router CNC</td>
+            <td>21.600</td>
+            <td>-</td>
+            <td>8 horas</td>
+          </tr>
+          <tr align="middle">
+            <td>FA</td>
+            <td>15.000</td>
+            <td>-</td>
+            <td>4 horas</td>
+          </tr>
+          <tr align="middle">
+            <td>TOTAL</td>
+            <td>42.000</td>
+            <td>-</td>
+            <td>20 horas</td>
+          </tr>
+        </table>
+        Tabla n°1, precios fabricación digital
+      </span></li>
+    </div>
+
+    <div class="col-sm-1">
+    </div>
+
+    <div class="col-sm-3">
+      <li id="selectorc" type='disc'><span id="texto">
+        2 horas de electrónica, 2 horas de diseño industrial y
+        3 horas de gestión de prototipado. Cada HH está valorizada en
+        1 uf.
+      </span></li>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
