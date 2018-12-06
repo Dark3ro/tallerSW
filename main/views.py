@@ -102,9 +102,8 @@ def eliminar_noticia(request):
 #----------------------------------------------------------------------
 @login_required()
 def eventos(request):
-    tipos =Tipo.objects.all()
     evento = Evento.objects.all()
-    return render(request, 'eventos.html', {'tipos':tipos, 'eventos':eventos})
+    return render(request, 'eventos.html', {'eventos':eventos})
 
 @login_required()
 def crear_evento(request):
