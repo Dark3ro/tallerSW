@@ -91,7 +91,7 @@ def crear_noticia(request):
         noticia.save()
         tags = request.POST.get('tag_name', '')
         noticia.tag.add(tags)
-
+        
     return redirect('noticias')
 
 @login_required()
