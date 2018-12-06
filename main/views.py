@@ -1,25 +1,53 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+<<<<<<< HEAD
 from .models import Tarea, Tag, Noticia, Tipo, Evento, Proyecto
+=======
+from django.contrib.auth.forms import UserCreationForm
+from .models import Tag, Noticia, Evento, Proyecto
+>>>>>>> master
 #
 from django.contrib import messages
 from .forms import NoticiaForm
 
 
+<<<<<<< HEAD
 @login_required
+=======
+@login_required()
+>>>>>>> master
 def crea_noti(request):
     form = NoticiaForm()
     return render(request, 'noticias.html', {'form':form })
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
 
 # Create your views here.
 @login_required()
 def index(request):
     return render(request, 'home.html')
 
+<<<<<<< HEAD
+=======
+@login_required()
+def registro(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+        else:
+            form = UserCreationForm()
+            args = {'form':form}
+            return render(request, 'registration/reg_form.html', args)
+
+
+>>>>>>> master
 #----------------------------------------------------------------------
 @login_required()
 def tags(request):
@@ -51,11 +79,15 @@ def eliminar_tag(request):
         tag = Tag.objects.get(pk=id)
         tag.delete()
     return redirect('tags')
+<<<<<<< HEAD
 #----------------------------------------------------------------------
 @login_required()
 def tipos(request):
     tipos = Tipo.objects.all()
     return render(request, 'tipos.html', {'tipos':tipos})
+=======
+
+>>>>>>> master
 
 #----------------------------------------------------------------------
 @login_required()
@@ -106,9 +138,8 @@ def eliminar_noticia(request):
 #----------------------------------------------------------------------
 @login_required()
 def eventos(request):
-    tipos =Tipo.objects.all()
-    evento = Evento.objects.all()
-    return render(request, 'eventos.html', {'tipos':tipos, 'eventos':eventos})
+    eventos = Evento.objects.all()
+    return render(request, 'eventos.html', {'eventos':eventos})
 
 @login_required()
 def crear_evento(request):
@@ -118,6 +149,32 @@ def crear_evento(request):
         evento.auspicio = request.POST.get('auspicio')
         evento.fecha = request.POST.get('fecha')
         evento.save()
+    return redirect('eventos')
+
+@login_required()
+def editar_evento(request):
+    if request.method == 'POST':
+        id = request.POST.get('id_evento')
+        evento = Evento.objects.get(pk=id)
+        evento.nombre = request.POST.get('nombre_edit')
+        evento.auspicio = request.POST.get('auspicio_edit')
+        evento.fecha = request.POST.get('fecha_edit')
+        evento.save()
+    return redirect('eventos')
+
+@login_required()
+def mostrar_evento(request):
+    if request.method == 'POST':
+        id = request.POST.get('id_evento')
+        evento = Evento.objects.get(pk=id)
+    return render(request, 'eventos.html', {'evento':evento})
+
+@login_required()
+def eliminar_evento(request):
+    if request.method == 'POST':
+        id = request.POST.get ('id_evento')
+        evento = Evento.objects.get(pk=id)
+        evento.delete()
     return redirect('eventos')
 #----------------------------------------------------------------------
 @login_required()
@@ -166,6 +223,7 @@ def crear_usuario(request):
         usuarios.save()
     return redirect('usuarios')
 
+<<<<<<< HEAD
 
 
 #-----------------------------------------------------------------------
@@ -173,6 +231,13 @@ def crear_usuario(request):
 def pago(request):
     return render(request, 'pago.html')
 @login_required()
+=======
+#-----------------------------------------------------------------------
+@login_required()
+def pago(request):
+    return render(request, 'pago.html')
+@login_required()
+>>>>>>> master
 def publico(request):
     return render(request, 'publico.html')
 @login_required

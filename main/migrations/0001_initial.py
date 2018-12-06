@@ -20,7 +20,11 @@ class Migration(migrations.Migration):
                 ('id_evento', models.AutoField(primary_key=True, serialize=False)),
                 ('nombre', models.CharField(max_length=255)),
                 ('auspicio', models.CharField(max_length=255)),
+<<<<<<< HEAD
                 ('fecha', models.DateTimeField(auto_now_add=True)),
+=======
+                ('fecha', models.CharField(max_length=10)),
+>>>>>>> master
             ],
             options={
                 'ordering': ('id_evento',),
