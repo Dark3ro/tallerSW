@@ -105,15 +105,9 @@ def crear_evento(request):
         evento.nombre = request.POST.get('nombre')
         evento.auspicio = request.POST.get('auspicio')
         evento.fecha = request.POST.get('fecha')
+        #print(evento.fecha)
         evento.save()
     return redirect('eventos')
-
-@login_required()
-def mostrar_evento(request):
-    if request.method == 'POST':
-        id = request.POST.get('id_evento')
-        evento = Evento.objects.get(pk=id)
-    return render(request, 'eventos.html', {'evento':evento})
 
 #----------------------------------------------------------------------
 @login_required()

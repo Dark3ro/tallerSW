@@ -45,7 +45,6 @@ urlpatterns = [
     #eventos
     path('eventos', views.eventos, name="eventos"),
     path('crear_evento', views.crear_evento, name='crear_evento'),
-    #path('mostrar_evento', views.mostrar_evento, name='mostrar_evento'),
     #tareas
     path('tareas', views.tareas, name="tareas"),
     path('crear_tarea', views.crear_tarea, name='crear_tarea'),
