@@ -49,12 +49,22 @@ def tags(request):
     return render(request, 'tags.html', {'tags':tags})
 
 @login_required()
+def agregar_tags(request):
+    tags = Tag.objects.all()
+    return render(request, 'agregar_tags.html', {'tags':tags})
+
+@login_required()
 def crear_tag(request):
     if request.method == 'POST':
         tag = Tag()
         tag.name_tag = request.POST.get('name_tag')
         tag.save()
     return redirect('tags')
+
+@login_required()
+def modificar_tags(request):
+    tags = Tag.objects.all()
+    return render(request, 'modificar_tags.html', {'tags':tags})
 
 @login_required()
 def editar_tag(request):
@@ -65,6 +75,11 @@ def editar_tag(request):
         tag.name_tag = request.POST.get('name_tag')
         tag.save()
     return redirect('tags')
+
+@login_required()
+def borrar_tags(request):
+    tags = Tag.objects.all()
+    return render(request, 'borrar_tags.html', {'tags':tags})
 
 @login_required()
 def eliminar_tag(request):
@@ -83,6 +98,12 @@ def noticias(request):
     return render(request, 'noticias.html', {'tags':tags, 'noticias':noticias})
 
 @login_required()
+def agregar_noticia(request):
+    tags = Tag.objects.all()
+    noticias = Noticia.objects.all()
+    return render(request, 'agregar_noticia.html',{'tags':tags,'noticias':noticias})
+
+@login_required()
 def crear_noticia(request):
     if request.method == 'POST':
         noticia = Noticia()
@@ -91,8 +112,13 @@ def crear_noticia(request):
         noticia.save()
         tags = request.POST.get('tag_name', '')
         noticia.tag.add(tags)
-
     return redirect('noticias')
+
+@login_required()
+def modificar_noticia(request):
+    tags = Tag.objects.all()
+    noticias = Noticia.objects.all()
+    return render(request, 'modificar_noticia.html',{'tags':tags,'noticias':noticias})
 
 @login_required()
 def editar_noticia(request):
@@ -109,7 +135,12 @@ def mostrar_noticia(request):
     if request.method == 'POST':
         id = request.POST.get('id_noticia')
         noticia = Noticia.objects.get(pk=id)
-    return render(request, 'noticias.html', {'noticia':noticia})
+    return render(request, 'modificar_noticia.html', {'noticia':noticia})
+
+@login_required()
+def borrar_noticia(request):
+    noticias = Noticia.objects.all()
+    return render(request, 'borrar_noticia.html',{'noticias':noticias})
 
 @login_required()
 def eliminar_noticia(request):
@@ -125,6 +156,11 @@ def eventos(request):
     return render(request, 'eventos.html', {'eventos':eventos})
 
 @login_required()
+def agregar_eventos(request):
+    eventos = Evento.objects.all()
+    return render(request, 'agregar_eventos.html', {'eventos':eventos})
+
+@login_required()
 def crear_evento(request):
     if request.method == 'POST':
         evento = Evento()
@@ -132,7 +168,12 @@ def crear_evento(request):
         evento.auspicio = request.POST.get('auspicio')
         evento.fecha = request.POST.get('fecha')
         evento.save()
-    return redirect('eventos')
+    return redirect('eventos.html')
+
+@login_required()
+def modificar_eventos(request):
+    eventos = Evento.objects.all()
+    return render(request, 'modificar_eventos.html', {'eventos':eventos})
 
 @login_required()
 def editar_evento(request):
@@ -150,7 +191,12 @@ def mostrar_evento(request):
     if request.method == 'POST':
         id = request.POST.get('id_evento')
         evento = Evento.objects.get(pk=id)
-    return render(request, 'eventos.html', {'evento':evento})
+    return render(request, 'modificar_eventos.html', {'evento':evento})
+
+@login_required()
+def borrar_eventos(request):
+    eventos = Evento.objects.all()
+    return render(request, 'borrar_eventos.html', {'eventos':eventos})
 
 @login_required()
 def eliminar_evento(request):

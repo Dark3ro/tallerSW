@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Aregar Tags{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+
+    <div class="col-4">
+      <h2>Crear Tag</h2>
+      <form  action="{% url 'crear_tag' %}" method="POST">{% csrf_token %}
+        <div class="form-group" action=>
+          <label for="usr">Nombre:</label>
+          <input type="text" class="form-control" name="name_tag" id="name_tag">
+        </div>
+        <button type="submit" class="btn btn-primary">Crear Tag</button>
+      </form>
+    </div>
+  </div
+  <div class="form-group" >
+      <br>
+    <a href="{% url 'tags' %}"><button type="submit" class="btn btn-primary">Volver</button></a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Noticias {% endblock %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+  <div class="col-8">
+  <h2>Eliminar Noticia</h2>
+  <form method="POST" action="{% url 'eliminar_noticia' %}">{% csrf_token %}
+    <label class="my-1 mr-2">Titulo:</label>
+    <select class="custom-select my-1 mr-sm-2" name='id_noticia'>
+      <option disabled selected>Escoger...</option>
+      {% for n in noticias %}
+        <option value="{{n.id_noticia}}">{{n.titulo}}   {{n.fecha}}</option>
+      {% endfor %}
+    </select>
+    <div class="form-group row col-md-12">
+        <button type="submit" class="btn btn-primary"onClick="return confirm('Seguro que desea eliminar')">Eliminar</button>
+    </div>
+  </form>
+  <a href="{% url 'noticias' %}"><button type="submit" class="btn btn-primary">Volver</button></a>
+  </div>
+</div>
+</div>
+
+{% endblock %}

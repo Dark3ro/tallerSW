@@ -33,15 +33,21 @@ urlpatterns = [
     path('investigacion',views.investigacion, name='investigacion'),
     #tags
     path('tags', views.tags, name="tags"),
+    path('agregar_tags',views.agregar_tags, name='agregar_tags'),
     path('crear_tag', views.crear_tag, name='crear_tag'),
+    path('editar_tags', views.modificar_tags, name='modificar_tags'),
     path('editar_tag', views.editar_tag, name='editar_tag'),
+    path('eliminar_tags', views.borrar_tags, name='borrar_tags'),
     path('eliminar_tag', views.eliminar_tag, name='eliminar_tag'),
 
     #noticias
     path('noticias', views.noticias, name="noticias"),
+    path('agregar_noticia',views.agregar_noticia, name='agregar_noticia'),
     path('crear_noticia', views.crear_noticia, name='crear_noticia'),
+    path('editar_noticia', views.modificar_noticia, name='modificar_noticia'),
     path('editar_noticia', views.editar_noticia, name='editar_noticia'),
     path('mostrar_noticia', views.mostrar_noticia, name='mostrar_noticia'),
+    path('eliminar_noticia', views.borrar_noticia, name='borrar_noticia'),
     path('eliminar_noticia', views.eliminar_noticia, name='eliminar_noticia'),
 
     #proyectos
@@ -52,11 +58,14 @@ urlpatterns = [
 
     #eventos
     path('eventos', views.eventos, name="eventos"),
+    path('agregar_eventos', views.agregar_eventos, name='agregar_eventos'),
     path('crear_evento', views.crear_evento, name='crear_evento'),
+    path('editar_eventos', views.modificar_eventos, name='modificar_eventos'),
     path('editar_evento', views.editar_evento, name='editar_evento'),
     path('mostrar_evento', views.mostrar_evento, name='mostrar_evento'),
+    path('borrar_eventos', views.borrar_eventos, name='borrar_eventos'),
     path('eliminar_evento', views.eliminar_evento, name='eliminar_evento'),
-    
+
     #registro
     path('login', auth_views.LoginView.as_view(), name="login"),
     path('logout', auth_views.LogoutView.as_view(), name="logout"),

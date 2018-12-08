@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Eventos{% endblock %}
+
+{% block content %}
+
+<!-------------------------------Eliminar Evento-------------------------------------------------------->
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+    <h2>Eliminar Evento</h2>
+    <form method="POST" action="{% url 'eliminar_evento' %}">{% csrf_token %}
+      <label class="my-1 mr-2">Nombre:</label>
+      <select class="custom-select my-1 mr-sm-2" name='id_evento'>
+        <option disabled selected>Escoger...</option>
+        {% for n in eventos %}
+          <option value="{{n.id_evento}}">{{n.nombre}}   {{n.fecha}}</option>
+        {% endfor %}
+      </select>
+      <div class="form-group row col-md-12">
+          <button type="submit" class="btn btn-primary"onClick="return confirm('Seguro que desea eliminar')">Eliminar</button>
+      </div>
+    </form>
+    <div class="form-group" >
+      <a href="{% url 'eventos' %}"><button type="submit" class="btn btn-primary">Volver</button></a>
+    </div>
+</div>
+
+{% endblock %}

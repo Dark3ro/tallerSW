@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Aregar Tags{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="col-4">
+    <h2>Eliminar Tag</h2>
+    <form  action="{% url 'eliminar_tag' %}" method="POST">{% csrf_token %}
+      {% for t in tags %}
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name = 'id_tag' value="{{t.id_tag}}" checked>
+        <label class="form-check-label">
+          {{t.name_tag}}
+        </label>
+      </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary" onClick="return confirm('Seguro que desea eliminar')">Eliminar Tag</button>
+    </form>
+    <div class="form-group" >
+        <br>
+      <a href="{% url 'tags' %}"><button type="submit" class="btn btn-primary">Volver</button></a>
+    </div>
+  </div>
+</div>
+{% endblock %}
