@@ -1,40 +1,121 @@
-{% extends 'base.html' %}
+{%load staticfiles %}
 
-{% block title %}Investigación y Desarrollo{% endblock %}
+<head>
 
-{% block content %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<div class="container">
-  <center> Tener la capacidad para desarrollar ideas e investigar conceptos a
-            través de equipos interdisciplinarios y la habilitación de espacios.
-  </center>
-  <br><br>
-  <div class="row">
-      <div class="col-sm-1">
-      </div>
-      <div class="col-sm-4">
-      <li id="selectoro"><span id="texto">Apoyo ó ejecución en postulaciones a
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/freelancer.min.css' %}" rel="stylesheet">
+
+  </head>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Valparaiso MakerSpace</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'publico' %}">Público Objetivo</a>
+        </li>
+        <li class="nav-item active">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'posicionamiento' %}">Posicionamiento</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'quienes_somos' %}">¿Quienes somos?</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " href="{% url 'logout' %}">Logout </a>
+        </li>
+      </ul>
+  </nav>
+<section class="bg-primary text-white mb-0" id="about">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Prototipado Ágil</h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+          <div class="col-lg-4 ml-auto">
+           <h5><a><h2 style="color:white"><span class="align-middle">Apoyo ó ejecución en postulaciones a
                                           líneas de financiamiento para la
-                                          investigación.
-      </span></li>
-      <li id="selectoro"><span id="texto">Integrando equipos de trabajos a
-                                          través de la habilitación de espacios.
-      </span></li>
-    </div>
+                                          investigación.</span></h2></a>
+         
+  
 
-    <div class="col-sm-2">
-    </div>
+          </h5>
+          </div>
+          <div class="col-lg-4 mr-auto">
+         <h5><h5><a><h2 style="color:white"><span class="align-middle">Integrando equipos de trabajos a
+                                          través de la habilitación de espacios.</span></h2></a>
+   
 
-    <div class="col-sm-4">
-      <li id=selectoro><span id="texto">Proponer líneas de investigación con el
-                                        propósito de la generación y
-                                        transferencia de conocimientoMaker.<br>
-                                        Ej: Potencial proyecto con Costa Digital.
-      </span></li>
-    </div>
-  </div>
-  <br>
+  
 
-</div>
+     
+         </h5>
+          </div>
+           <div class="col-lg-4 ml-auto">
+           <h5><a><h2 style="color:white"><span class="align-middle">Proponer líneas de investigación con el propósito de la generación y transferencia de conocimientoMaker.
+            <br>
+          Ej: Potencial proyecto con Costa Digital.</span></h2></a> 
+          </h5>
+          </div>
+        </div>
+      </div>
 
-{% endblock %}
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Ubicacion</h4>
+            <p class="lead mb-0">Facultad de Ingeniería PUCV, Av Brasil 2147, Valparaíso  
+              <br>Valparaíso, Chile</p>
+          </div>
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Encuentranos !</h4>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.facebook.com/ValparaisoMakerspace/">
+                  <i class="fab fa-fw fa-facebook-f"></i>
+                </a>
+              </li>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-linkedin-in"></i>
+                </a>
+              </li>
+             
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-uppercase mb-4">Contactanos</h4>
+            <p class="lead mb-0">(32) 227 4151
+          </div>
+        </div>
+      </div>
+    </footer>

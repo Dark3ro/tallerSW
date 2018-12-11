@@ -1,80 +1,106 @@
-{% extends 'base.html' %}
-
-{% block title %}Área de extensión{% endblock %}
-
 {% block content %}
+{%load staticfiles %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-2">
-    </div>
+<head>
 
-    <div class="col-sm-3" style="background-color:gold;">
-      <a><h2 style="color:white"><span class="align-middle">Academia MakerSpace</span></h2></a>
-    </div>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <div class="col-sm-2">
-    </div>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
-    <div class="col-sm-3" style="background-color:cyan;">
-      <a"><h2 style="color:white"><span class="align-middle">Vinculación con la comunidad</span></h2></a>
-    </div>
-  </div>
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/freelancer.min.css' %}" rel="stylesheet">
+
+  </head>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Valparaiso MakerSpace</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'publico' %}">Público Objetivo</a>
+        </li>
+        <li class="nav-item active">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'posicionamiento' %}">Posicionamiento</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'quienes_somos' %}">¿Quienes somos?</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " href="{% url 'logout' %}">Logout </a>
+        </li>
+      </ul>
+  </nav>
+<section class="bg-primary text-white mb-0" id="about">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Extensión</h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+          <div class="col-lg-4 ml-auto">
+           <h5><a><h2 style="color:white"><span class="align-middle">Academia MakerSpace</span></h2></a> 
+          Otorgar metodologías y aprendizajes para el desarrollo y transferencia de conocimiento. “Makerspace que es conocimiento
+          </h5>
+          </div>
+          <div class="col-lg-4 mr-auto">
+         <h5><h5><a><h2 style="color:white"><span class="align-middle">Vinculación con la comunidad</span></h2></a>Promocionar la filosofía Makerspace a través de su manifiesto: Hazlo tú mismo. “Makerspace que es vínculo
+         </h5>
+          </div>
+
+    </section>
+  <br>
+  <br>
   <br>
 
   <div class="row">
-    <div class="col-sm-2">
+    <div class="col-lg-1">
     </div>
 
-    <div class="col-sm-3">
-      <a><span class="align-middle">Otorgar metodologías y aprendizajes
-                                    para el desarrollo y transferencia de
-                                    conocimiento. “Makerspace que es conocimiento"</span></a>
+    <div class="col-lg-1" style="background-color:gold;">
+      <a><h5 style="color:black"><span class="align-middle">Workshop</span></h5></a>
     </div>
 
-    <div class="col-sm-2">
+    <div class="col-lg-1">
     </div>
 
-    <div class="col-sm-3">
-      <a><span class="align-middle">Promocionar la filosofía Makerspace a
-                                    través de su manifiesto: Hazlo tú
-                                    mismo. “Makerspace que es vínculo” </span></a>
-    </div>
-  </div>
-  <br>
-  <br>
-
-  <div class="row">
-    <div class="col-sm-1,5" style="background-color:orangered;">
-      <a><h5 style="color:white"><span class="align-middle">Workshop</span></h5></a>
+    <div class="col-lg-1" style="background-color:gold;">
+      <a"><h5 style="color: black"><span class="align-middle">Ciclo de charlas</span></h5></a>
     </div>
 
-    <div class="col-sm-1">
+    <div class="col-lg-1">
     </div>
 
-    <div class="col-sm-2" style="background-color:cyan;">
-      <a"><h5><span class="align-middle">Ciclo de charlas</span></h5></a>
-    </div>
-
-    <div class="col-sm-1">
-    </div>
-
-    <div class="col-sm-1" style="background-color:gold;">
+    <div class="col-lg-1" style="background-color:gold;">
       <a"><h5><span class="align-middle">Eventos</span></h5></a>
     </div>
 
-    <div class="col-sm-1">
+    <div class="col-lg-1">
     </div>
 
-    <div class="col-sm-2" style="background-color:lavender;">
+    <div class="col-lg-1" style="background-color:gold;">
       <a"><h5><span class="align-middle">Clasespace V(formación continua)</span></h5></a>
     </div>
 
-    <div class="col-sm-1">
+    <div class="col-lg-1">
     </div>
 
-    <div class="col-sm-2" style="background-color:darkred;">
-      <a"><h5 style="color:white"><span class="align-middle">Capacitaciones // Programas</span></h5></a>
+    <div class="col-lg-1" style="background-color:gold;">
+      <a"><h5 style="color:black"><span class="align-middle">Capacitaciones // Programas</span></h5></a>
     </div>
   </div>
   <br>
@@ -87,5 +113,43 @@
   </center>
 
 </div>
+
+ <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Ubicacion</h4>
+            <p class="lead mb-0">Facultad de Ingeniería PUCV, Av Brasil 2147, Valparaíso  
+              <br>Valparaíso, Chile</p>
+          </div>
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Encuentranos !</h4>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.facebook.com/ValparaisoMakerspace/">
+                  <i class="fab fa-fw fa-facebook-f"></i>
+                </a>
+              </li>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-linkedin-in"></i>
+                </a>
+              </li>
+             
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-uppercase mb-4">Contactanos</h4>
+            <p class="lead mb-0">(32) 227 4151
+          </div>
+        </div>
+      </div>
+    </footer>
 
 {% endblock %}
