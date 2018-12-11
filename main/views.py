@@ -168,7 +168,7 @@ def crear_evento(request):
         evento.auspicio = request.POST.get('auspicio')
         evento.fecha = request.POST.get('fecha')
         evento.save()
-    return redirect('eventos.html')
+    return redirect('eventos')
 
 #@login_required()
 def modificar_eventos(request):
