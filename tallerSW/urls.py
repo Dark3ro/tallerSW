@@ -22,4 +22,5 @@ urlpatterns = [
     path('gestion/', include('main.urls')),
 
 ]
+
 urlpatterns += staticfiles_urlpatterns()

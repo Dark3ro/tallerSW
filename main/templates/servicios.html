@@ -1,48 +1,124 @@
-{% extends 'base.html' %}
+{%load staticfiles %}
+<!DOCTYPE html>
+<!-- Portfolio Grid Section -->
+<head>
 
-{% block title %}Público Objetivo{% endblock %}
-
-{% block content %}
-
-<div class="container">
-  <ul>
-    <li type="disc">
-      <h5>
-        <a style='color:black' href="{% url 'pago' %}">Sistema de pago MakerSpace <span class="sr-only">(current)</span></a>
-      </h5>
-    </li>
-    <br>
-    <li type="disc">
-      <h5>
-        <a style='color:black' href="{% url 'retribucion' %}">Sistema de retribución y beneficios <span class="sr-only">(current)</span></a>
-      </h5>
-    </li>
-    <br>
-    <li type="disc">
-      <h5>
-        <a style='color:black' href="{% url 'prototipado' %}">1. Prototipado Ágil <span class="sr-only">(current)</span></a>
-      </h5>
-    </li>
-    <br>
-    <li type="disc">
-      <h5>
-        <a style='color:black' href="{% url 'area_extension' %}">2. Área de extensión MakerSpace<span class="sr-only">(current)</span></a>
-      </h5>
-    </li>
-    <br>
-    <li type="disc">
-      <h5>
-        <a style='color:black' href="{% url 'membresia' %}">3. Membresía y Alquiler<span class="sr-only">(current)</span></a>
-      </h5>
-    </li>
-    <br>
-    <li type="disc">
-      <h5>
-        <a style='color:black' href="{% url 'investigacion' %}">4. Investigación y Desarrollo<span class="sr-only">(current)</span></a>
-      </h5>
-    </li>
-  </ul>
-</div>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
 
-{% endblock %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/freelancer.min.css' %}" rel="stylesheet">
+
+  </head>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Valparaiso MakerSpace</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'publico' %}">Público Objetivo</a>
+        </li>
+        <li class="nav-item active">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'posicionamiento' %}">Posicionamiento</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'quienes_somos' %}">¿Quienes somos?</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " href="{% url 'logout' %}">Logout </a>
+        </li>
+      </ul>
+  </nav>
+   <section class="bg-primary text-white mb-0" id="about">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Nuestros Servicios</h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+          <div class="col-lg-5 ml-auto">
+           <h5><h2><a style='color:white' href="{% url 'pago' %}">Sistema de pago MakerSpace <span class="sr-only">(current)</span></a></h2>
+          </h5>
+          </div>
+          <div class="col-lg-5 ml-auto">
+           <h5><h2><a style='color:white'href="{% url 'retribucion' %}">Sistema de retribución y beneficios <span class="sr-only">(current)</span></a></h2>
+          </h5>
+          </div>
+          <div class="col-lg-5 ml-auto">
+           <h5><h2><a style='color:white' href="{% url 'prototipado' %}">Prototipado Ágil <span class="sr-only">(current)</span></a></h2>
+          </h5>
+          </div>
+          <div class="col-lg-5 ml-auto">
+           <h5><h2><a style='color:white' href="{% url 'area_extension' %}">Área de extensión MakerSpace<span class="sr-only">(current)</span></a></h2>
+          </h5>
+          </div>
+          <div class="col-lg-5 ml-auto">
+           <h5><h2><a style='color:white' href="{% url 'membresia' %}">Membresía y Alquiler<span class="sr-only">(current)</span></a></h2>
+          </h5>
+          </div>
+          <div class="col-lg-5 ml-auto">
+           <h5><h2><a style='color:white' href="{% url 'investigacion' %}">Investigación y Desarrollo<span class="sr-only">(current)</span></a></h2>
+          </h5>
+          </div>
+      
+          
+        </div>
+      </div>
+
+    </section>
+     <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Ubicacion</h4>
+            <p class="lead mb-0">Facultad de Ingeniería PUCV, Av Brasil 2147, Valparaíso  
+              <br>Valparaíso, Chile</p>
+          </div>
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Encuentranos !</h4>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.facebook.com/ValparaisoMakerspace/">
+                  <i class="fab fa-fw fa-facebook-f"></i>
+                </a>
+              </li>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-linkedin-in"></i>
+                </a>
+              </li>
+             
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-uppercase mb-4">Contactanos</h4>
+            <p class="lead mb-0">(32) 227 4151
+          </div>
+        </div>
+      </div>
+    </footer>
+</html>

@@ -1,48 +1,117 @@
-{% extends 'base.html' %}
+{%load staticfiles %}
+<head>
 
-{% block title %}¿Quienes somos?{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-{% block content %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-3" style="background-color:teal;">
-      <a><h2 style="color:white"><span class="align-middle">Somos ESPACIO</span></h2></a>
-    </div>
-    <div class="col-sm-1">
-    </div>
-    <div class="col-sm-3" style="background-color:teal;">
-      <a"><h2 style="color:white"><span class="align-middle">Somos COMUNIDAD</span></h2></a>
-    </div>
-    <div class="col-sm-1">
-    </div>
-    <div class="col-sm-3" style="background-color:teal;">
-      <a"><h2 style="color:white"><span class="align-middle">Somos CADENA DE VALOR</span></h2></a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <a><h6><span class="align-middle">Libre, Cowork y de fabricación digital,
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/freelancer.min.css' %}" rel="stylesheet">
+
+  </head>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Valparaiso MakerSpace</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'publico' %}">Público Objetivo</a>
+        </li>
+        <li class="nav-item active">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'posicionamiento' %}">Posicionamiento</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'quienes_somos' %}">¿Quienes somos?</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " href="{% url 'logout' %}">Logout </a>
+        </li>
+      </ul>
+  </nav>
+
+<section class="bg-primary text-white mb-0" id="about">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">¿Quienes somos?</h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+          <div class="col-lg-4 ml-auto">
+            <a><h2 style="color:white"><span class="align-middle">Somos ESPACIO</span></h2></a>
+            <p class="lead">Libre, Cowork y de fabricación digital,
                                         que impulsa la innovación a través de
-                                        la experimentación.</span></h6></a>
-    </div>
-    <div class="col-sm-1">
-    </div>
-    <div class="col-sm-3">
-      <a"><h6><span class="align-middle"> Emprendedores, inventores,
+                                        la experimentación.</p>
+          </div>
+          <div class="col-lg-4 mr-auto">
+            <a><h2 style="color:white"><span class="align-middle">Somos CADENA DE VALOR</span></h2></a>
+            <p class="lead">Podrás ser parte del ecosistema
+                                         de emprendimiento e
+                                         innovación de la PUCV.</p>
+          </div>
+           <div class="col-lg-4 ml-auto">
+            <a><h2 style="color:white"><span class="align-middle">Somos COMUNIDAD</span></h2></a>
+            <p class="lead">Emprendedores, inventores,
                                           académicos, estudiantes y
                                           empresas. De habilidades
                                           creativas, interdisciplinarias
-                                          e innovadoras.</span></h6></a>
-    </div>
-    <div class="col-sm-1">
-    </div>
-    <div class="col-sm-3">
-      <a"><h6><span class="align-middle">Podrás ser parte del ecosistema
-                                         de emprendimiento e
-                                         innovación de la PUCV.</span></h6></a>
-    </div>
-  </div>
-</div>
+                                          e innovadoras.</p>
+          </div>
+        </div>
+      </div>
 
-{% endblock %}
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Ubicacion</h4>
+            <p class="lead mb-0">Facultad de Ingeniería PUCV, Av Brasil 2147, Valparaíso  
+              <br>Valparaíso, Chile</p>
+          </div>
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Encuentranos !</h4>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.facebook.com/ValparaisoMakerspace/">
+                  <i class="fab fa-fw fa-facebook-f"></i>
+                </a>
+              </li>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-linkedin-in"></i>
+                </a>
+              </li>
+             
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-uppercase mb-4">Contactanos</h4>
+            <p class="lead mb-0">(32) 227 4151
+          </div>
+        </div>
+      </div>
+    </footer>

@@ -1,103 +1,124 @@
-{% extends 'base.html' %}
-
-{% block title %}Retribución y Beneficios{% endblock %}
-
+{%load staticfiles %}
 {% block content %}
+<head>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-3">
-      <li id="selectora" type='disc'><span id="texto">
-          Ser parte del club de mentores
-          The Lift, en representación de
-          Valparaíso MakerSpace.
-      </span></li>
-    </div>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <div class="col-sm-1">
-    </div>
+    <title>Valparaíso MakerSpace</title>
 
-    <div class="col-sm-3">
-      <li id="selectorc" type='disc'><span id="texto">
-          Realizar un proyecto interno
-          para Valparaíso MakerSpace
-          (Ej: Diseño de paredes)
-      </span></li>
-    </div>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
-    <div class="col-sm-1">
-    </div>
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <div class="col-sm-3">
-      <li id="selectoro" type='disc'><span id="texto">
-          Reconocimiento público
-          del aporte percibido:
-          RRSS, difusion en medios tradicionales.
-      </span></li>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-sm-3">
-      <li id="selectora" type='disc'><span id="texto">
-            Ser parte de la ejecución del área
-            de extensión makerspace, según
-            sea las capacidades intelectuales
-            y prácticas de cada equipo de
-            trabajo.
-      </span></li>
-    </div>
+    <!-- Plugin CSS -->
+    <link href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet" type="text/css">
 
-    <div class="col-sm-1">
-    </div>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/freelancer.min.css' %}" rel="stylesheet">
 
-    <div class="col-sm-3">
-      <li id="selectorc" type='disc'><span id="texto">
-          Ser parte del área de
-          construcción y formulación
-          de prototipado (Recibe *% de la
-          valorización de los servicios otorgados y la
-          otra parte lo entrega como forma de pago).
-      </span></li>
-    </div>
-
-    <div class="col-sm-1">
-    </div>
-
-    <div class="col-sm-3">
-      <li id="selectoro" type='disc'><span id="texto">
-        Brindar toda la información
-        solicitada, dado que “Todos los proyectos
-        que están en el espacio son
-        proyectos de Valparaíso
-        Makerspace”.
-      </span></li>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-sm-3">
-      <li id="selectora" type='disc'><span id="texto">
-        Ser parte del plan de inversión MakerSpace.
-      </span></li>
-    </div>
-
-    <div class="col-sm-1">
-    </div>
-
-    <div class="col-sm-3">
-      <li id="selectorc" type='disc'><span id="texto">
-        Voluntario MakerSpace.
-      </span></li>
-    </div>
-  </div>
-</div>
-<br>
-<br>
-<div class="container">
-  <h5>OBSERVACIONES</h5>
+  </head>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Valparaiso MakerSpace</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'publico' %}">Público Objetivo</a>
+        </li>
+        <li class="nav-item active">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'posicionamiento' %}">Posicionamiento</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'quienes_somos' %}">¿Quienes somos?</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " href="{% url 'logout' %}">Logout </a>
+        </li>
+      </ul>
+  </nav>
+<section class="bg-primary text-white mb-0" id="about">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Nuestra Meta</h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+          <div class="col-lg-4 ml-auto">
+           <h5><a><h2 style="color:white"><span class="align-middle"></span></h2></a>
+             <li value="1">Ser parte del club de mentores The Lift, en representación de Valparaíso MakerSpace.</li>
+            <li value="1">Ser parte de la ejecución del área de extensión makerspace, según sea las capacidades intelectuales y prácticas de cada equipo de trabajo.</li>
+            <li value="1">Ser parte del plan de inversión MakerSpace.</li>
+          </h5>
+          </div>
+          <div class="col-lg-4 mr-auto">
+         <h5><h5><a><h2 style="color:white"><span class="align-middle"></span></h2></a>
+          <li value="1">Realizar un proyecto interno para Valparaíso MakerSpace (Ej: Diseño de paredes)</li>
+        <li>Ser parte del área de construcción y formulación de prototipado (Recibe *% de la valorización de los servicios otorgados y la otra parte lo entrega como forma de pago).</li>
+        <li>Voluntario MakerSpace..</li>
+         </h5>
+          </div>
+           <div class="col-lg-4 ml-auto">
+           <h5><a><h2 style="color:white"><span class="align-middle"></span></h2></a>
+              <li value="1">Reconocimiento público del aporte percibido: RRSS, difusion en medios tradicionales.</li>
+        <li>Brindar toda la información solicitada, dado que “Todos los proyectos que están en el espacio son proyectos de Valparaíso Makerspace”.</li>
+          </h5>
+          </div>
+        </div>
+      </div>
+      <hr>
+          <h5>OBSERVACIONES</h5>
   Diseño de convenio de sistema de retribución y beneficios de Valparaíso Makerspace y Proyecto “x”. Se detallarán los
 métodos de pago a ofrecer, aceptado y comprometido.
 Para este ítem, la hora hombre (HH) valorizada en Valparaíso makerspace es de $15.000 (externo)-$20.000 (interno)
-</div>
+    </section>
+
+
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Ubicacion</h4>
+            <p class="lead mb-0">Facultad de Ingeniería PUCV, Av Brasil 2147, Valparaíso  
+              <br>Valparaíso, Chile</p>
+          </div>
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Encuentranos !</h4>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.facebook.com/ValparaisoMakerspace/">
+                  <i class="fab fa-fw fa-facebook-f"></i>
+                </a>
+              </li>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-linkedin-in"></i>
+                </a>
+              </li>
+             
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-uppercase mb-4">Contactanos</h4>
+            <p class="lead mb-0">(32) 227 4151
+          </div>
+        </div>
+      </div>
+    </footer>
+
 {% endblock %}

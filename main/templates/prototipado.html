@@ -1,120 +1,69 @@
-{% extends 'base.html' %}
-
-{% block title %}Prototipado Ágil{% endblock %}
-
+{%load staticfiles %}
 {% block content %}
+<head>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-3" style="background-color:gold;">
-      <a><h2 style="color:white"><span class="align-middle">Laboratorio de fabricación</span></h2></a>
-    </div>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <div class="col-sm-1">
-    </div>
+    <title>Valparaíso MakerSpace</title>
 
-    <div class="col-sm-3" style="background-color:cyan;">
-      <a"><h2 style="color:white"><span class="align-middle">Customización maker</span></h2></a>
-    </div>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
-    <div class="col-sm-1">
-    </div>
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <div class="col-sm-3" style="background-color:orangered;">
-      <a"><h2 style="color:white"><span class="align-middle">Fabricación de producto</span></h2></a>
-    </div>
-  </div>
-  <br>
+    <!-- Plugin CSS -->
+    <link href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet" type="text/css">
 
-  <div class="row">
-    <div class="col-sm-3">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/freelancer.min.css' %}" rel="stylesheet">
+
+  </head>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Valparaiso MakerSpace</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'publico' %}">Público Objetivo</a>
+        </li>
+        <li class="nav-item active">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'posicionamiento' %}">Posicionamiento</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'quienes_somos' %}">¿Quienes somos?</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link " href="{% url 'logout' %}">Logout </a>
+        </li>
+      </ul>
+  </nav>
+<section class="bg-primary text-white mb-0" id="about">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Prototipado Ágil</h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+          <div class="col-lg-4 ml-auto">
+           <h5><a><h2 style="color:white"><span class="align-middle">Laboratorio de fabricación</span></h2></a>
+            <li value="1">Espacio de Cowork:
+             incluye sala de reuniones, locker, sector café-té.</li>
+           <li>Taller de fabricación análoga.</li>
+           <li>Valorizado en $40.000 mensuales. Horario de 9:00 a 18:00 hrs., de lunes a viernes.</li>
+           <li>Tabla n°1, precios fabricación digital</li>
+           <div class="row">
+    <div class="col-sm-5">
       <li id="selectora" type='disc'><span id="texto">
-        <b>Espacio de Cowork:</b><br>
-        Incluye sala de reuniones,
-        locker, sector café-té.
-      </span></li>
-    </div>
-
-    <div class="col-sm-1">
-    </div>
-
-    <div class="col-sm-3">
-      <li id="selectorc" type='disc'><span id="texto">
-        Capacitaciones introductorias en FD.
-      </span></li>
-    </div>
-
-    <div class="col-sm-1">
-    </div>
-
-    <div class="col-sm-3">
-      <li id="selectoro" type='disc'><span id="texto">
-          Área de construcción y apoyo de formulación de prototipos.
-      </span></li>
-    </div>
-  </div>
-  <br>
-
-  <div class="row">
-    <div class="col-sm-3">
-      <li id="selectora" type='disc'><span id="texto">
-        Taller de fabricación análoga.
-      </span></li>
-    </div>
-
-    <div class="col-sm-1">
-    </div>
-
-    <div class="col-sm-3">
-      <li id="selectorc" type='disc'><span id="texto">
-        Asesorías personalizadas
-        en el área técnica y gestión
-        de proyectos a nivel de
-        prototipado.
-      </span></li>
-    </div>
-
-    <div class="col-sm-1">
-    </div>
-
-    <div class="col-sm-3">
-      <li id="selectoro" type='disc'><span id="texto">
-        1. Compra de materiales, asociada a un
-        factor multiplicador (10% dda interna, 30% dda externa).<br>
-        2. Cobro de hora hombre (HH),
-        valorizadas en: 0,5 uf precio interno y 1 uf precio externo.<br>
-        3. Uso de laboratorio de fabricación
-        digital, sujeto a la valorización de la tabla 1.
-      </span></li>
-    </div>
-  </div>
-  <br>
-
-  <div class="row">
-    <div class="col-sm-3">
-      <li id="selectora" type='disc'><span id="texto">
-        Valorizado en $40.000 mensuales. Horario de 9:00
-        a 18:00 hrs., de lunes a viernes.
-      </span></li>
-    </div>
-
-    <div class="col-sm-1">
-    </div>
-
-    <div class="col-sm-3">
-      <li id="selectorc" type='disc'><span id="texto">
-        Una hora por tipo de
-        maquinaría. Valorizada en
-        $15.000.
-      </span></li>
-    </div>
-  </div>
-  <br>
-
-  <div class="row">
-    <div class="col-sm-3">
-      <li id="selectora" type='disc'><span id="texto">
-        <table border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+        <table border="1" cellpadding="0" cellspacing="0" bordercolor="white">
           <tr align="middle">
             <th scope="col">Tipo de FD</th>
             <th scope="col">$/H</th>
@@ -152,21 +101,76 @@
             <td>20 horas</td>
           </tr>
         </table>
-        Tabla n°1, precios fabricación digital
       </span></li>
     </div>
 
-    <div class="col-sm-1">
-    </div>
+          </h5>
+          </div>
+          <div class="col-lg-4 mr-auto">
+         <h5><h5><a><h2 style="color:white"><span class="align-middle">Customización maker</span></h2></a>
+   
 
-    <div class="col-sm-3">
-      <li id="selectorc" type='disc'><span id="texto">
-        2 horas de electrónica, 2 horas de diseño industrial y
-        3 horas de gestión de prototipado. Cada HH está valorizada en
-        1 uf.
-      </span></li>
-    </div>
-  </div>
-</div>
+        <li value="1">Capacitaciones introductorias en FD. </li>
+        <li>Asesorías personalizadas en el área técnica y gestión de proyectos a nivel de prototipado.</li>
+        <li> Una hora por tipo de maquinaría. Valorizada en $15.000.</li>
+        <li> 2 horas de electrónica, 2 horas de diseño industrial y 3 horas de gestión de prototipado. Cada HH está valorizada en 1 uf.</li>
+
+     
+         </h5>
+          </div>
+           <div class="col-lg-4 ml-auto">
+           <h5><a><h2 style="color:white"><span class="align-middle">Fabricación de producto</span></h2></a> 
+           <li value="1">Área de construcción y apoyo de formulación de prototipos. </li>
+           <li>Compra de materiales, asociada a un factor multiplicador (10% dda interna, 30% dda externa).</li>
+           <li>  Cobro de hora hombre (HH), valorizadas en: 0,5 uf precio interno y 1 uf precio externo.</li>
+           <li>Uso de laboratorio de fabricación digital, sujeto a la valorización de la tabla 1.
+           </li>
+
+          </ol>
+          </h5>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+<footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Ubicacion</h4>
+            <p class="lead mb-0">Facultad de Ingeniería PUCV, Av Brasil 2147, Valparaíso  
+              <br>Valparaíso, Chile</p>
+          </div>
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Encuentranos !</h4>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://www.facebook.com/ValparaisoMakerspace/">
+                  <i class="fab fa-fw fa-facebook-f"></i>
+                </a>
+              </li>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-linkedin-in"></i>
+                </a>
+              </li>
+             
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-uppercase mb-4">Contactanos</h4>
+            <p class="lead mb-0">(32) 227 4151
+          </div>
+        </div>
+      </div>
+    </footer>
 
 {% endblock %}
